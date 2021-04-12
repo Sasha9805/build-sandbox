@@ -6,8 +6,14 @@ const path = require('path');
 module.exports = {
   mode: 'development',
 
+  target: "web",
+
   output: {
     path: path.resolve(process.cwd(), 'dist')
+  },
+
+  devServer: {
+    open: true
   },
 
   module: {
