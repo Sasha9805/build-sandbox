@@ -5,6 +5,17 @@ module.exports = {
   module: {
     rules: [
 
+      // Loading Babel
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ]
+      },
+
       // Loading Images
       {
         test: /\.(png|jpg|jpeg|gif|ico)$/,

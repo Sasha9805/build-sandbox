@@ -1,13 +1,9 @@
-import Calc from "./calc";
-import Log from "./log";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import img from './react.png';
+const App = () => <p>Hello</p>;
 
-const calc = new Calc();
-const log = new Log();
-
-log.log(calc.add(1, 2, 5));
-
-const el = document.createElement('img');
-el.src = img;
-document.body.append(el);
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
