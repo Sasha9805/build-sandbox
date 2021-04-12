@@ -1,7 +1,14 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'development',
+
+  output: {
+    path: path.resolve(process.cwd(), 'dist')
+  },
 
   module: {
     rules: [
@@ -45,7 +52,7 @@ module.exports = {
       {
         test: /\.(css)$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader'
         ]
       },
@@ -54,7 +61,7 @@ module.exports = {
       {
         test: /\.(s[ac]ss)$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader'
         ]
@@ -67,6 +74,10 @@ module.exports = {
       title: 'Hello World',
       buildTime: new Date().toISOString(),
       template: "public/index.html"
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'main-[hash:8].css'
+    }),
+    new CleanWebpackPlugin()
   ]
 };
