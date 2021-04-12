@@ -44,12 +44,22 @@ module.exports = {
         ]
       },
 
-      // Loading styles
+      // Loading CSS
       {
-        test: /.css$/,
+        test: /\.(css)$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' }
+        ]
+      },
+
+      // Loading SCSS/SASS
+      {
+        test: /\.(s[ac]ss)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
         ]
       }
     ]
